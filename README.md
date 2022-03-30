@@ -15,3 +15,7 @@
 <img src="img/s2.png">
 <img src="img/s3.png">
 <img src="img/s4.png">
+
+## Video funcionamiento
+
+https://youtu.be/RQWTdaq5Iqc
