@@ -8,7 +8,7 @@
 * main.java.arep --> RoundRobin.java **(Client y Service Proxy)**
 * main.java.arep --> SparkWebApp.java **(Client y Service Proxy)**
 
-## Funcionamiento
+## Funcionamiento en local
 
 
 <img src="img/s1.png">
@@ -16,6 +16,6 @@
 <img src="img/s3.png">
 <img src="img/s4.png">
 
-## Video funcionamiento
+## Video funcionamiento en AWS
 
 https://youtu.be/RQWTdaq5Iqc
