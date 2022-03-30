@@ -4,7 +4,7 @@ var app = (function(){
         var numberInput = document.getElementById("inputNumber").value;
         console.log(numberInput);
         $.ajax({
-            url: "hhttp://ec2-3-83-81-27.compute-1.amazonaws.com/:35000/cos",
+            url: "http://ec2-3-83-81-27.compute-1.amazonaws.com:35000/cos",
             type:'GET',
             data: {
                 value: numberInput
@@ -20,7 +20,7 @@ var app = (function(){
         var numberInput = document.getElementById("inputNumber").value;
         console.log(numberInput);
         $.ajax({
-            url: "http://ec2-3-83-81-27.compute-1.amazonaws.com/:35000/log",
+            url: "http://ec2-3-83-81-27.compute-1.amazonaws.com:35000/log",
             type:'GET',
             data: {
                 value: numberInput

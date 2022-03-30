@@ -55,16 +55,16 @@ public class RoundRobin {
     private String[] getPortsArray(){
         String[] result = new String[2];
         if (System.getenv("PORT_S1") != null) {
-            result[0] = "ec2-18-233-166-108.compute-1.amazonaws.com:"+Integer.parseInt(System.getenv("PORT_S1"));
+            result[0] = "http://ec2-18-233-166-108.compute-1.amazonaws.com:"+Integer.parseInt(System.getenv("PORT_S1"));
         }
         else{
-            result[0] = "ec2-18-233-166-108.compute-1.amazonaws.com:"+35001;
+            result[0] = "http://ec2-18-233-166-108.compute-1.amazonaws.com:"+35001;
         }
         if (System.getenv("PORT_S2") != null) {
-            result[1] = "ec2-54-87-128-178.compute-1.amazonaws.com"+Integer.parseInt(System.getenv("PORT_S2"));
+            result[1] = "http://ec2-54-87-128-178.compute-1.amazonaws.com"+Integer.parseInt(System.getenv("PORT_S2"));
         }
         else{
-            result[1] = "ec2-54-87-128-178.compute-1.amazonaws.com"+35002;
+            result[1] = "http://ec2-54-87-128-178.compute-1.amazonaws.com"+35002;
         }
         return result;
     }
