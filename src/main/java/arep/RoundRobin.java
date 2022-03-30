@@ -11,15 +11,17 @@ public class RoundRobin {
 
     public RoundRobin() {
         queue =  new PriorityQueue<>();
-        int[] ports = getPortsArray();
+        String[] ports = getPortsArray();
         for (int i = 0; i < ports.length; i++) {
-            queue.add("http://localhost:"+ports[i]);
+            queue.add(ports[i]);
         }
     }
 
     public String sendRequest(String num, String operation){
         try {
-            URL url = new URL(selectHost()+"/"+operation+"?value="+num);
+            String hostPort = selectHost();
+            System.out.println("Maquina: "+hostPort);
+            URL url = new URL(hostPort+"/"+operation+"?value="+num);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             if (conn.getResponseCode() != 200) {
@@ -50,25 +52,19 @@ public class RoundRobin {
         return returnHost;
     }
 
-    private int[] getPortsArray(){
-        int[] result = new int[3];
+    private String[] getPortsArray(){
+        String[] result = new String[2];
         if (System.getenv("PORT_S1") != null) {
-            result[0] = Integer.parseInt(System.getenv("PORT_S1"));
+            result[0] = "ec2-18-233-166-108.compute-1.amazonaws.com:"+Integer.parseInt(System.getenv("PORT_S1"));
         }
         else{
-            result[0] = 35001;
+            result[0] = "ec2-18-233-166-108.compute-1.amazonaws.com:"+35001;
         }
         if (System.getenv("PORT_S2") != null) {
-            result[1] = Integer.parseInt(System.getenv("PORT_S2"));
+            result[1] = "ec2-54-87-128-178.compute-1.amazonaws.com"+Integer.parseInt(System.getenv("PORT_S2"));
         }
         else{
-            result[1] = 35002;
-        }
-        if (System.getenv("PORT_S3") != null) {
-            result[2] = Integer.parseInt(System.getenv("PORT_S3"));
-        }
-        else{
-            result[2] = 35003;
+            result[1] = "ec2-54-87-128-178.compute-1.amazonaws.com"+35002;
         }
         return result;
     }
